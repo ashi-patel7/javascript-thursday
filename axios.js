@@ -44,3 +44,27 @@ create = URL => { //create is our POST request
 }
 
 button.onclick = () => create(input.value);
+
+
+//GET request for single user id 2
+read = URL => {
+    axios.get('https://reqres.in/api/users/2')
+        .then((response) => {
+        output.innerHTML = JSON.stringify(response.data);
+    }).catch((err) => {
+        console.log(err);
+    })
+}
+
+//POST request for create
+create = URL => {
+    axios.get('https://reqres.in/api/users', {
+        first_name:'Morpheus',
+        job:'leader'
+    })
+    .then((response) => {
+        output.innerHTML = JSON.stringify(response.data);
+    }).catch((err) => {
+        console.log(err);
+    })
+}
